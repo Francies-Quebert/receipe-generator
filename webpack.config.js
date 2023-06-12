@@ -58,6 +58,8 @@ module.exports = (env, argv) => {
             })],
         devServer: {
             port: 3000,
+            historyApiFallback: true,
+            
         },
         performance: {
             maxEntrypointSize: 512000,
