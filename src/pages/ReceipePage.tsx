@@ -34,14 +34,16 @@ function ReceipePage() {
                 alt='meal image'
                 src={meal.strMealThumb}
                 className='rounded-md object-cover w-full h-[500px] ' />
-              <div className='absolute inset-0 bg-gradient-from-l bg-black/40' />
-              <img
-                src={Image}
-                alt='youtube'
-                className='absolute text-center mx-auto w-20 top-[50%] left-[50%] tra -translate-x-2/4 -translate-y-2/4'
-              />
+              <div className='absolute inset-0 bg-gradient-from-l bg-black/40'>
+                <img
+                  src={Image}
+                  alt='youtube'
+                  className='absolute text-center mx-auto w-20 top-[50%] left-[50%] tra -translate-x-2/4 -translate-y-2/4'
+                />
 
-              <h1 className='absolute top-5 left-5 text-xl pb-8 text-white'>{meal.strMeal}</h1>
+                <h1 className='absolute top-5 left-5 text-xl pb-8 text-white'>{meal.strMeal}</h1>
+              </div>
+
             </a>
             <div className='flex w-full pb-5 mt-10'>
               <div className='font-bold text-primary/70 w-32'>Area</div>
