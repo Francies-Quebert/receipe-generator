@@ -27,24 +27,25 @@ function ReceipePage() {
   return (
     meal ?
       <section id='meal'>
-        <div className=' grid grid-flow-row md:grid-cols-2 max-w-6xl mx-auto gap-16 my-10 px-8 ms:px-0'>
+        <div className=' grid grid-flow-row md:grid-cols-2 max-w-6xl mx-auto gap-16 my-10 px-4 ms:px-0'>
           <div className='my-auto'>
-            <a href={meal.strYoutube} target='_blank' className='w-full h-[500px] relative '>
-              <img
-                alt='meal image'
-                src={meal.strMealThumb}
-                className='rounded-md object-cover w-full h-[500px] ' />
-              <div className='absolute inset-0 bg-gradient-from-l bg-black/40'>
+            <div className='relative'>
+              <a href={meal.strYoutube} target='_blank' className='w-full h-[500px]  '>
                 <img
-                  src={Image}
-                  alt='youtube'
-                  className='absolute text-center mx-auto w-20 top-[50%] left-[50%] tra -translate-x-2/4 -translate-y-2/4'
-                />
+                  alt='meal image'
+                  src={meal.strMealThumb}
+                  className='rounded-md object-cover w-full h-[500px] ' />
+                <div className='absolute inset-0 bg-gradient-from-l bg-black/40'>
+                  <img
+                    src={Image}
+                    alt='youtube'
+                    className='absolute text-center mx-auto w-20 top-[50%] left-[50%] tra -translate-x-2/4 -translate-y-2/4'
+                  />
 
-                <h1 className='absolute top-5 left-5 text-xl pb-8 text-white'>{meal.strMeal}</h1>
-              </div>
-
-            </a>
+                  <h1 className='absolute top-5 left-5 text-xl pb-8 text-white'>{meal.strMeal}</h1>
+                </div>
+              </a>
+            </div>
             <div className='flex w-full pb-5 mt-10'>
               <div className='font-bold text-primary/70 w-32'>Area</div>
               <div className='flex-1 text-left'>{meal.strArea}</div>
