@@ -1,5 +1,4 @@
-// import App from '../App';
-import ReceipeList from '../pages/ReceipeList';
+import IngredientList from '../pages/IngredientList';
 import {
     createBrowserRouter,
     RouterProvider,
@@ -8,9 +7,9 @@ import ErrorBoundary from './ErrorBoundary';
 import ReceipePage from '../pages/ReceipePage';
 import Layout from './Layout';
 import { useReceipe } from '../store/useReceipe';
+import MealsList from '../pages/MealsList';
 
 function RoutesComp() {
-    const receipe = useReceipe.use.receipe()
 
     const router = createBrowserRouter([
         {
@@ -19,16 +18,26 @@ function RoutesComp() {
             children: [
                 {
                     path: "/",
-                    element: <ReceipeList />,
+                    element: <IngredientList />,
                     index: true,
                 }, {
-                    path: "receipe-page/:receipeId",
+                    path: "/meals/:name",
+                    element: <MealsList />,
+                }, {
+                    path: "/meals",
+                    element: <IngredientList />,
+                }, {
+                    path: "/receipe-page/:receipeId",
                     element: <ReceipePage />,
+                },
+                {
+                    path: "/receipe-page",
+                    element: <IngredientList />,
                 },
             ],
             errorElement: <ErrorBoundary />
         },
-    ]);
+    ], { basename: '/' });
 
     return (
         <>

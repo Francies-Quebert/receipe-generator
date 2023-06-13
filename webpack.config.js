@@ -29,20 +29,20 @@ module.exports = (env, argv) => {
                     use: 'babel-loader',
                 }, {
                     test: /\.css$/,
-                    use: ['style-loader', 'css-loader'],
+                    use: ['style-loader', 'css-loader', "postcss-loader"],
                 }, {
-                    test: /\.svg$/,
-                    use: ['svg-url-loader'],
-                },
+                    test: /\.(jpe?g|png|gif|svg)$/i,
+                    loader: 'file-loader',
+                    options: {
+                        name: '/assets/[name].[ext]'
+                    }
+                }
             ],
         },
         optimization: isProduction ? {
             minimize: true,
             runtimeChunk: {
                 name: 'runtime',
-            },
-            splitChunks: {
-                chunks: 'all',
             },
         } : { minimize: true, },
         plugins: isProduction ? [
@@ -53,17 +53,23 @@ module.exports = (env, argv) => {
             })
         ] : [
             new HtmlWebpackPlugin({
+                title: 'Receipe Generator',
                 template: './public/index.html',
                 filename: './index.html',
+                base: '/'
             })],
         devServer: {
             port: 3000,
             historyApiFallback: true,
-            
+
         },
         performance: {
             maxEntrypointSize: 512000,
             maxAssetSize: 512000
         },
+        // devtool: isProduction ? 'source-map' : 'eval-source-map',
+        // stats: {
+        //     errorDetails: true,
+        // },
     };
 };

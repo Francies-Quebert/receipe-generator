@@ -1,13 +1,14 @@
-import React from 'react'
 import { Outlet } from 'react-router'
 import Header from './Header'
+import { ScrollRestoration } from 'react-router-dom'
 
 function Layout() {
     return (
         <div>
-            <Header/>
+            <ScrollRestoration />
+            <Header />
             <div><Outlet /></div>
-            <div>Footer</div>
+            <div className='w-full text-black text-center py-4 border-t border-primary border-solid'>Recipe Generator</div>
         </div>
     )
 }
