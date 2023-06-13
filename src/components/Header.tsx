@@ -5,7 +5,7 @@ function Header() {
         <header>
             <section className="bg-accent-bg">
                 <div className="container mx-auto">
-                    <div className="grid my-2 md:my-0 mx-10 md:mx-0 md:grid-cols-2">
+                    <div className="grid py-2 md:py-0 mx-10 md:mx-0 md:grid-cols-2">
                         <div className="flex items-center">
                             <Link className="text-3xl font-bold" to={'/'}>
                                 <h3>Recipes</h3>

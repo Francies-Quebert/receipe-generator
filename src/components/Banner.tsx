@@ -37,8 +37,8 @@ const Banner = () => {
                 <p className="max-w-[550px] mx-auto pb-10">
                     Aenean tellus ligula, pellentesque sit amet luctus eget, posuere eget sapien. Proin ultricies vestibulum sem non lobortis.
                 </p>
-                <div className="w-96 mx-auto">
-                    <form onSubmit={onFilterSubmit}>
+                <div className="w-full mx-auto sm:w-96 ">
+                    <form onSubmit={onFilterSubmit} className='flex justify-center w-full'>
                         {/* commented incase data is filtered accoring to  filter type*/}
                         {/* <div className=''>
                             <select
@@ -54,10 +54,10 @@ const Banner = () => {
                         <input
                             type="text"
                             placeholder="Find Ingredient..."
-                            className="px-5  h-10 rounded-l-sm outline-none text-black"
+                            className="px-5 h-10 rounded-l-sm outline-none text-black"
                             value={filterReceipe}
                             onChange={(e) => setFilterReceipe(e.target.value)} />
-                        <button type="submit" className="bg-primary text-white h-10 w-[100px] rounded-r-sm">
+                        <button type="submit" className="bg-primary text-white h-10 w-[100px] rounded-r-sm outline-none">
                             Search
                         </button>
                     </form>

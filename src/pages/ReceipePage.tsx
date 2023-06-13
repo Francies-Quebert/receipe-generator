@@ -38,7 +38,7 @@ function ReceipePage() {
               <img
                 src={Image}
                 alt='youtube'
-                className='absolute text-center mx-auto w-20 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'
+                className='absolute text-center mx-auto w-20 top-[50%] left-[50%] tra -translate-x-2/4 -translate-y-2/4'
               />
 
               <h1 className='absolute top-5 left-5 text-xl pb-8 text-white'>{meal.strMeal}</h1>

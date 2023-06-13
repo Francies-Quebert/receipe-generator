@@ -10,7 +10,7 @@ interface ListCardInterface {
 }
 function ListCard({ name, image, description, btnname, to }: ListCardInterface) {
     return (
-        <Link to={to} className="group bg-white  rounded-sm cursor-pointer">
+        <Link to={to} className="group bg-white  rounded-sm cursor-pointer mb-5">
             <div className="recipe-item">
                 <div className="relative rounded-t-sm transition-colors bg-gradient-from-l bg-gradient-to-b from-primary/20 to-primary/70 group-hover:to-primary">
                     <img
@@ -24,7 +24,7 @@ function ListCard({ name, image, description, btnname, to }: ListCardInterface) 
                         <h6 data-tooltip={name} className="text-primary font-semibold text-xl mb-5 line-clamp-1">{name}</h6>
                         <p className="line-clamp-3 text-black/70">{description}</p>
                     </div>
-                    <button type="button" className="bg-primary text-white h-10 w-full rounded-sm mt-5">
+                    <button type="button" className="bg-primary text-white h-10 w-full rounded-sm mt-5 outline-none">
                         {btnname}
                     </button>
                 </div>
