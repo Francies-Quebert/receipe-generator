@@ -30,7 +30,7 @@ To serve the production build locally, use the following command:
 
 # `npm run serve-build`
 
-This will start a local server to serve the production build, and you can access the application at http://localhost:5000.
+This will start a local server to serve the production build, and you can access the application at http://localhost:3000.
 
 Features
 Search for meals based on ingredients.
