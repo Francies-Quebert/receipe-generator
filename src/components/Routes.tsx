@@ -6,7 +6,6 @@ import {
 import ErrorBoundary from './ErrorBoundary';
 import ReceipePage from '../pages/ReceipePage';
 import Layout from './Layout';
-import { useReceipe } from '../store/useReceipe';
 import MealsList from '../pages/MealsList';
 
 function RoutesComp() {
@@ -18,21 +17,21 @@ function RoutesComp() {
             children: [
                 {
                     path: "/",
-                    element: <IngredientList />,
+                    lazy: async () => ({ Component: IngredientList }),
                     index: true,
                 }, {
                     path: "/meals/:name",
-                    element: <MealsList />,
+                    lazy: async () => ({ Component: MealsList }),
                 }, {
                     path: "/meals",
-                    element: <IngredientList />,
+                    lazy: async () => ({ Component: IngredientList }),
                 }, {
                     path: "/receipe-page/:receipeId",
-                    element: <ReceipePage />,
+                    lazy: async () => ({ Component: ReceipePage }),
                 },
                 {
                     path: "/receipe-page",
-                    element: <IngredientList />,
+                    lazy: async () => ({ Component: IngredientList }),
                 },
             ],
             errorElement: <ErrorBoundary />

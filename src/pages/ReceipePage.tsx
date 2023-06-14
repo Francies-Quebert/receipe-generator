@@ -1,28 +1,43 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useReceipe } from '../store/useReceipe';
 import { useParams } from 'react-router-dom';
 import fetchReceipeData from '../lib/fetchReceipeData';
 import cleanMealData, { MealDataInterface } from '../lib/cleanMealData';
 import Image from '../assets/yt.png'
+import NotFound from '../components/NotFound';
+import Loading from '../components/Loading';
 
 
 function ReceipePage() {
   let { receipeId = '' } = useParams();
   const setMeals = useReceipe.use.setMeals()
   const meals = useReceipe.use.meals()
+  const [loading, setLoading] = useState<boolean>(false);
+
 
   async function getMealData() {
-    if (!receipeId) return;
-    const data: any = await fetchReceipeData(receipeId)
-    const cData: MealDataInterface = await cleanMealData(data.meals[0])
-    console.log(cData, 'cData')
-    setMeals([...meals, cData])
+    try {
+      if (!receipeId) return;
+      const meal = meals.find(data => data.idMeal === receipeId)
+      if (meal) return;
+      const data: any = await fetchReceipeData(receipeId)
+      if (!data?.meals?.length) return;
+      const cData: MealDataInterface = cleanMealData(data.meals[0])
+      setMeals([...meals, cData])
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
+
   }
 
   useEffect(() => {
+    setLoading(true)
     getMealData()
   }, [])
 
+  if (loading) return <Loading />
   const meal = meals.find(data => data.idMeal === receipeId)
   return (
     meal ?
@@ -58,7 +73,7 @@ function ReceipePage() {
               <div className='font-bold text-primary/70 w-32'>Tags</div>
               <div className='flex-1 flex flex-row gap-6 flex-wrap'>
                 {meal.strTags ? meal.strTags.split(',').map(val => val ?
-                  <div className='bg-accent-bg rounded-md px-5 py-2'>{val}</div> : '') : ''}
+                  <div key={val} className='bg-accent-bg rounded-md px-5 py-2'>{val}</div> : '') : ''}
               </div>
             </div>}
           </div>
@@ -72,7 +87,7 @@ function ReceipePage() {
             <div>
               <ul className=''>
                 {meal.ingredients.map(ing =>
-                  <li>
+                  <li key={ing.name}>
                     <div className='flex'>
                       <div className='text-black/70'>{ing.name}</div>
                       <div className='flex-1 text-right text-primary font-bold'>{ing.measure}</div>
@@ -84,7 +99,7 @@ function ReceipePage() {
           </div>
         </div>
 
-      </section> : <>'Not Found'</>
+      </section> : <NotFound />
   )
 }
 
