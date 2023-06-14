@@ -47,6 +47,7 @@ function ReceipePage() {
             <div className='relative'>
               <a href={meal.strYoutube} target='_blank' className='w-full h-[500px]  '>
                 <img
+                  loading="lazy"
                   alt='meal image'
                   src={meal.strMealThumb}
                   className='rounded-md object-cover w-full h-[500px] ' />

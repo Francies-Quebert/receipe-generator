@@ -29,7 +29,7 @@ const Banner = () => {
 
     return (
         <section className="banner relative text-white">
-            <img src={Image} alt='banner image' className="w-full object-cover absolute top-0 left-0 -z-10 h-full" />
+            <img src={Image} alt='banner image' className="w-full object-cover absolute top-0 left-0 -z-10 h-full" loading="lazy"/>
             <div className="h-full text-center py-36">
                 <h1 className="text-3xl font-bold pb-10">
                     Find Ingredient

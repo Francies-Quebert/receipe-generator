@@ -14,6 +14,7 @@ function ListCard({ name, image, description, btnname, to }: ListCardInterface) 
             <div className="recipe-item">
                 <div className="relative rounded-t-sm transition-colors bg-gradient-from-l bg-gradient-to-b from-primary/20 to-primary/70 group-hover:to-primary">
                     <img
+                        loading="lazy"
                         src={image}
                         alt=""
                         className="mx-auto z-0 py-10 h-[200px] w-[200px] object-contain" />
