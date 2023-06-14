@@ -9,6 +9,9 @@ module.exports = {
         'primary': '#ffa803',
         'accent-bg': '#f3f3f3',
         'accent': '#aaaaaa'
+      },
+      animation: {
+        'spin-slow': 'spin 2.4s linear infinite',
       }
     },
   },
