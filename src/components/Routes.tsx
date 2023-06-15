@@ -7,6 +7,8 @@ import ErrorBoundary from './ErrorBoundary';
 import ReceipePage from '../pages/ReceipePage';
 import Layout from './Layout';
 import MealsList from '../pages/MealsList';
+import React from 'react';
+import Loading from './Loading';
 
 function RoutesComp() {
 
@@ -40,7 +42,9 @@ function RoutesComp() {
 
     return (
         <>
-            <RouterProvider router={router} />
+            <React.Suspense fallback={<Loading />}>
+                <RouterProvider router={router} />
+            </React.Suspense>
         </>
     )
 }

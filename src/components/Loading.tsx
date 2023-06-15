@@ -1,9 +1,13 @@
-import React from 'react'
-import Image from  '../assets/burger.svg'
+import Lottie from 'lottie-react';
+import animationData from '../assets/loading.json';
+
 const Loading = () => {
     return (
         <div className='w-full flex justify-center items-center h-screen'>
-            <img src={Image} alt='Loading' className='h-52 animate-spin-slow ' loading="eager"/>
+            <Lottie
+                animationData={animationData}
+                className='h-52'
+            />
         </div>
     )
 }

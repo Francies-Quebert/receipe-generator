@@ -7,7 +7,9 @@ function Layout() {
         <div>
             <ScrollRestoration />
             <Header />
-            <div><Outlet /></div>
+            <div >
+                <Outlet />
+            </div>
             <div className='w-full text-black text-center py-4 border-t border-primary border-solid'>Recipe Generator</div>
         </div>
     )

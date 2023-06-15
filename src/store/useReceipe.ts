@@ -7,34 +7,32 @@ export interface ingredientInterface {
     "idIngredient": string,
     "strIngredient": string,
     "strDescription": string,
-    "strType": null | string
+    "strType": null | string,
+    'src'?: string | null
 }
 
-interface categoryInterface {
-    "strCategory": string,
+export interface MealsListData {
+    "strMeal": string,
+    "strMealThumb": string,
+    "idMeal": string
 }
 
-interface areaInterface {
-    "strArea": string,
+export interface IngredientMeals {
+    [key: string]: MealsListData[]
 }
 
-interface IngredientMeals {
-    [key: string]: {
-        "strMeal": string,
-        "strMealThumb": string,
-        "idMeal": string
-    }[]
+
+export type fetchIngredientsTypes = {
+    meals: ingredientInterface[];
+}
+
+export type fetchMealsTypes = {
+    meals: MealsListData[];
 }
 
 interface ReceipeStoreInterface {
     ingredients: ingredientInterface[],
     setIngredient: (ingredients: any) => void,
-
-    category: categoryInterface[],
-    setCategory: (category: categoryInterface) => void,
-
-    area: areaInterface[],
-    setArea: (area: areaInterface) => void,
 
     ingredientMeals: IngredientMeals,
     setIngredientMeals: (ingredientMeals: IngredientMeals) => void,
@@ -42,24 +40,17 @@ interface ReceipeStoreInterface {
     meals: MealDataInterface[],
     setMeals: (meals: MealDataInterface[]) => void,
 
-    filterReceipe: string;
-    setFilterReceipe: (filterReceipe: string) => void;
+    filterReceipe: string | null;
+    setFilterReceipe: (filterReceipe: string | null) => void;
 
     filterBy: string;
-    setFilterBy: (filterBy: string) => void;
 
 }
 
 
-const useReceipeBase = create<ReceipeStoreInterface>()((set, get) => ({
+const useReceipeBase = create<ReceipeStoreInterface>()((set) => ({
     ingredients: [],
     setIngredient: (ingredients: any) => set(ingredients),
-
-    category: [],
-    setCategory: (category: any) => set(category),
-
-    area: [],
-    setArea: (area: any) => set(area),
 
     ingredientMeals: {},
     setIngredientMeals: (ingredientMeals: any) => set({ ingredientMeals }),
@@ -67,8 +58,8 @@ const useReceipeBase = create<ReceipeStoreInterface>()((set, get) => ({
     meals: [],
     setMeals: (meals: any) => set({ meals }),
 
-    filterReceipe: '',
-    setFilterReceipe: (filterReceipe: string) => set({ filterReceipe }),
+    filterReceipe: null,
+    setFilterReceipe: (filterReceipe: string | null) => set({ filterReceipe }),
 
     filterBy: 'i',
     setFilterBy: (filterBy: string) => set({ filterBy }),

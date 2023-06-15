@@ -88,7 +88,7 @@ function ReceipePage() {
             <div>
               <ul className=''>
                 {meal.ingredients.map(ing =>
-                  <li key={ing.name}>
+                  <li key={`${ing.name}¬${ing.measure}`}>
                     <div className='flex'>
                       <div className='text-black/70'>{ing.name}</div>
                       <div className='flex-1 text-right text-primary font-bold'>{ing.measure}</div>

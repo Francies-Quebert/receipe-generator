@@ -28,8 +28,8 @@ module.exports = (env, argv) => {
                     exclude: /node_modules/,
                     use: 'babel-loader',
                 }, {
-                    test: /\.css$/,
-                    use: ['style-loader', 'css-loader', "postcss-loader"],
+                    test: /\.(css|less)$/,
+                    use: ['style-loader', 'css-loader', "postcss-loader",'less-loader'],
                 }, {
                     test: /\.(jpe?g|png|gif|svg)$/i,
                     loader: 'file-loader',
@@ -64,12 +64,8 @@ module.exports = (env, argv) => {
 
         },
         performance: {
-            maxEntrypointSize: 1024000,
-            maxAssetSize: 1024000
+            maxEntrypointSize: 512000,
+            maxAssetSize: 512000
         },
-        // devtool: isProduction ? 'source-map' : 'eval-source-map',
-        // stats: {
-        //     errorDetails: true,
-        // },
     };
 };
