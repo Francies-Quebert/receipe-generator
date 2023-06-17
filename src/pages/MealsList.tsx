@@ -36,7 +36,7 @@ function MealsList() {
     if (loading) return <Loading />
     return (
         ingredientMeals[name]?.length > 0 ? <div className="grid grid-flow-row grid-cols-1 md:grid-cols-4 max-w-6xl mx-auto  md:gap-5 py-24 px-8 ms:px-0">
-            {ingredientMeals[name].map(data =>
+            {ingredientMeals[name].map((data:any) =>
                 <ListCard
                     key={data.idMeal}
                     name={data.strMeal}

@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.(ts|tsx)$/,
+                    test: /\.(ts|tsx|test.tsx)$/,
                     exclude: /node_modules/,
                     use: 'ts-loader',
                 },

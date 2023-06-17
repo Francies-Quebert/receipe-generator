@@ -2,6 +2,8 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import Routes from './components/Routes';
+import React from 'react';
+// import './mocks/setup';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

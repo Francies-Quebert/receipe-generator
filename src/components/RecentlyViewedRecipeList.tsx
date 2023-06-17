@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { useReceipe } from "../store/useReceipe"
+import { MealDataInterface } from "../lib/cleanMealData"
 
 function RecentlyViewedRecipeList() {
-    const meals = useReceipe.use.meals()
+    const { meals } = useReceipe()
     return (
         <div className="border border-solid border-black/30 rounded-md p-2 mt-4 md:mt-0">
             <div className="font-bold text-xl">Recently Viewed</div>
             <div className="">
-                {meals?.length && meals.reverse().slice(0, 10).map(data =>
+                {meals?.length && meals.reverse().slice(0, 10).map((data: MealDataInterface) =>
                     <Link
                         to={`receipe-page/${data.idMeal}`}
                         key={data.idMeal}

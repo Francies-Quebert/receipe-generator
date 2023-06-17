@@ -30,7 +30,7 @@ function IngredientList() {
         try {
             if (ingredients.length > 0) return;
             const { meals }: fetchIngredientsTypes = await fetchIngredientData({ value: { filterBy } });
-            setIngredient({ ingredients: meals })
+            setIngredient(meals)
         } catch (error) {
             console.error(error);
         } finally {
@@ -53,7 +53,7 @@ function IngredientList() {
                     <section
                         id="ingredient-list"
                         className={` grid grid-flow-row grid-cols-1 ${length > 0 ? 'md:grid-cols-3' : 'md:grid-cols-4'} max-w-6xl mx-auto md:gap-5`}>
-                        {ingredients.slice(0, displayAmt).map(data =>
+                        {ingredients.slice(0, displayAmt).map((data:ingredientInterface) =>
                             <ListCard
                                 key={data.idIngredient}
                                 to={`/meals/${data.strIngredient.replaceAll(' ', '_')}`}

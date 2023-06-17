@@ -32,7 +32,7 @@ export type fetchMealsTypes = {
 
 interface ReceipeStoreInterface {
     ingredients: ingredientInterface[],
-    setIngredient: (ingredients: any) => void,
+    setIngredient: (ingredients: ingredientInterface[]) => void,
 
     ingredientMeals: IngredientMeals,
     setIngredientMeals: (ingredientMeals: IngredientMeals) => void,
@@ -50,13 +50,13 @@ interface ReceipeStoreInterface {
 
 const useReceipeBase = create<ReceipeStoreInterface>()((set) => ({
     ingredients: [],
-    setIngredient: (ingredients: any) => set(ingredients),
+    setIngredient: (ingredients: ingredientInterface[]) => set({ ingredients }),
 
     ingredientMeals: {},
-    setIngredientMeals: (ingredientMeals: any) => set({ ingredientMeals }),
+    setIngredientMeals: (ingredientMeals: IngredientMeals) => set({ ingredientMeals }),
 
     meals: [],
-    setMeals: (meals: any) => set({ meals }),
+    setMeals: (meals: MealDataInterface[]) => set({ meals }),
 
     filterReceipe: null,
     setFilterReceipe: (filterReceipe: string | null) => set({ filterReceipe }),
@@ -65,6 +65,7 @@ const useReceipeBase = create<ReceipeStoreInterface>()((set) => ({
     setFilterBy: (filterBy: string) => set({ filterBy }),
 
 }))
+
 
 export const useReceipe = createSelectors(useReceipeBase)
 

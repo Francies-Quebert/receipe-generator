@@ -9,8 +9,10 @@ const createSelectors = <S extends UseBoundStore<StoreApi<object>>>(
 ) => {
     let store = _store as WithSelectors<typeof _store>
     store.use = {}
+    
     for (let k of Object.keys(store.getState())) {
-        ; (store.use as any)[k] = () => store((s) => s[k as keyof typeof s])
+        // console.log(k,'kkkkkkkkk',store.getState());
+        (store.use as any)[k] = () => store((s) => s[k as keyof typeof s])
     }
 
     return store

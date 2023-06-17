@@ -18,7 +18,7 @@ function ReceipePage() {
   async function getMealData() {
     try {
       if (!receipeId) return;
-      const meal = meals.find(data => data.idMeal === receipeId)
+      const meal = meals.find((data:MealDataInterface) => data.idMeal === receipeId)
       if (meal) return;
       const data: any = await fetchReceipeData(receipeId)
       if (!data?.meals?.length) return;
@@ -38,7 +38,7 @@ function ReceipePage() {
   }, [])
 
   if (loading) return <Loading />
-  const meal = meals.find(data => data.idMeal === receipeId)
+  const meal = meals.find((data:MealDataInterface) => data.idMeal === receipeId)
   return (
     meal ?
       <section id='meal'>
@@ -73,7 +73,7 @@ function ReceipePage() {
             {meal.strTags && <div className='flex w-full  pb-5'>
               <div className='font-bold text-primary/70 w-32'>Tags</div>
               <div className='flex-1 flex flex-row gap-6 flex-wrap'>
-                {meal.strTags ? meal.strTags.split(',').map(val => val ?
+                {meal.strTags ? meal.strTags.split(',').map((val:string) => val ?
                   <div key={val} className='bg-accent-bg rounded-md px-5 py-2'>{val}</div> : '') : ''}
               </div>
             </div>}
@@ -87,7 +87,7 @@ function ReceipePage() {
             <h2 className='text-4xl pb-8'>Ingredients</h2>
             <div>
               <ul className=''>
-                {meal.ingredients.map(ing =>
+                {meal.ingredients.map((ing) =>
                   <li key={`${ing.name}¬${ing.measure}`}>
                     <div className='flex'>
                       <div className='text-black/70'>{ing.name}</div>
