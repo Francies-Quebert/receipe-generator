@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useReceipe } from '../store/useReceipe';
-import fetchIngredientData from '../lib/fetchIngredientData';
+import { fetchMealsTypes, useReceipe } from '../store/useReceipe';
+import { fetchingredientFiltersData } from '../lib/fetchIngredientData';
 import ListCard from '../components/ListCard';
 import NotFound from '../components/NotFound';
 import Loading from '../components/Loading';
@@ -17,16 +17,14 @@ function MealsList() {
     useEffect(() => {
         setLoading(true)
         getMealData()
-
-    }, [])
+    }, [name])
 
     async function getMealData() {
         try {
             if (ingredientMeals[name]) return;
             if (!name) navigate('/')
-            const data: any = await fetchIngredientData({ type: 'filter', value: { filterBy, data: name } });
-            setIngredientMeals({ ...ingredientMeals, [name]: data.meals || {} })
-
+            const { meals } :fetchMealsTypes= await fetchingredientFiltersData({ value: { filterBy, data: name } });
+            setIngredientMeals({ ...ingredientMeals, [name]: meals || [] })
         } catch (err) {
             console.error(err);
         } finally {
@@ -38,8 +36,16 @@ function MealsList() {
     if (loading) return <Loading />
     return (
         ingredientMeals[name]?.length > 0 ? <div className="grid grid-flow-row grid-cols-1 md:grid-cols-4 max-w-6xl mx-auto  md:gap-5 py-24 px-8 ms:px-0">
-            {ingredientMeals[name].map(data =>
-                <ListCard key={data.idMeal} name={data.strMeal} image={`${data.strMealThumb}/preview`} to={`/receipe-page/${data.idMeal}`} btnname={`Preview Recipe`} />
+            {ingredientMeals[name].map((data:any) =>
+                <ListCard
+                    key={data.idMeal}
+                    name={data.strMeal}
+                    image={`${data.strMealThumb}/preview`}
+                    to={`/receipe-page/${data.idMeal}`}
+                    btnname={`Preview Recipe`}
+                    titleLineClamp='2'
+                    minHeight='min-h-[360px]'
+                />
             )}
         </div> : <NotFound name={name} />
     )
