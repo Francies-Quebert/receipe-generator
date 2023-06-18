@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { fetchIngredientsTypes, ingredientInterface, useReceipe } from "../store/useReceipe";
+import { useReceipe } from "../store/useReceipe";
 import { fetchIngredientData } from "../lib/fetchIngredientData";
 import Banner from "../components/Banner";
 import ListCard from "../components/ListCard";

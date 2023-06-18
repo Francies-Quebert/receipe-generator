@@ -8,10 +8,6 @@ export type imgDataType = {
     ingredients: base64TypeData,
     meals: base64TypeData,
 }
-interface ImageStoreInterface {
-    imgData: imgDataType;
-    setImgData: (imgData: imgDataType) => void
-}
 
 const useImageStoreBase = create<ImageStoreInterface>()((set) => ({
     imgData: { ingredients: {}, meals: {} },
