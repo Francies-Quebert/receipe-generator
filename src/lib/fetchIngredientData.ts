@@ -1,4 +1,3 @@
-import { MealsListData, ingredientInterface } from "../store/useReceipe";
 import { getImageData } from "./getImageData";
 
 type fetchIngredientDataParam = {

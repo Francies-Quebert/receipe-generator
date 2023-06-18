@@ -1,25 +1,3 @@
-export interface MealDataInterface {
-    ingredients: Ingredient[]
-    idMeal: string
-    strMeal: string
-    strDrinkAlternate: string | null
-    strCategory: string
-    strArea: string
-    strInstructions: string
-    strMealThumb: string
-    strTags: string
-    strYoutube: string
-    strSource: string | null
-    strImageSource: string | null
-    strCreativeCommonsConfirmed: string | null
-    dateModified: string | null
-}
-
-export interface Ingredient {
-    name: string
-    measure: string
-}
-
 export default function cleanMealData(data: any) {
     const newData: MealDataInterface = {
         ingredients: [],

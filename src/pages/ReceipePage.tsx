@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useReceipe } from '../store/useReceipe';
 import { useParams } from 'react-router-dom';
 import fetchReceipeData from '../lib/fetchReceipeData';
-import cleanMealData, { MealDataInterface } from '../lib/cleanMealData';
+import cleanMealData from '../lib/cleanMealData';
 import Image from '../assets/yt.png'
 import NotFound from '../components/NotFound';
 import Loading from '../components/Loading';

@@ -1,6 +1,6 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Image from '../assets/banner.jpg'
-import { fetchIngredientsTypes, ingredientInterface, useReceipe } from '../store/useReceipe'
+import {  useReceipe } from '../store/useReceipe'
 import CustomSelect from './CustomSelect'
 import { useState, useEffect } from 'react'
 import { DefaultOptionType } from 'rc-select/lib/Select'

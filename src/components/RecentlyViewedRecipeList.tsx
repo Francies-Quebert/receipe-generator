@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom"
-import { useReceipe } from "../store/useReceipe"
-import { MealDataInterface } from "../lib/cleanMealData"
+import { Link } from "react-router-dom";
+import { useReceipe } from "../store/useReceipe";
 
 function RecentlyViewedRecipeList() {
     const { meals } = useReceipe()

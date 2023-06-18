@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom'
 import Button from './Button'
 
-interface ListCardInterface {
-    name: string,
-    image: string,
-    description?: string,
-    to: string,
-    btnname: string,
-    titleLineClamp?: string
-    minHeight?: string
-}
+
 function ListCard({ name, image, description, btnname, to, titleLineClamp = '1', minHeight = 'min-h-[400px]' }: ListCardInterface) {
     return (
         <Link to={to} className="group bg-white  rounded-sm cursor-pointer mb-5 focus-visible:bg-primary/20 focus-visible:outline-none">
